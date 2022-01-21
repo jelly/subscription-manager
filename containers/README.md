@@ -5,9 +5,7 @@ This directory contains scripts and configuration files that are necessary for r
 subscription-manager in a containerized environment. This environment could be created
 using podman. Why do we care about running subscription-manager in a containerized
 environment? We believe that it could be useful for testing of subscription-manager.
-We also support running and testing of subscription-manager using vagrant, but running
-subscription-manager in VM could be a bit cumbersome. Running subscription-manager
-using podman could be more flexible for developers too.
+Running subscription-manager using podman could be more flexible for developers too.
 
 Requirements
 ------------
@@ -34,7 +32,7 @@ To do development locally and have the changes reflected locally (inside the con
 tainer) do the following run command from the base subscription-manager source
 directory:
 
-    $ podman run -it --rm -v /run/user/$UID/bus:/tmp/bus -v $PWD:/home/jenkins/subman:Z -w /home/jenkins/subman subman /bin/bash
+    $ podman run -t --rm -v /run/user/$UID/bus:/tmp/bus -v $PWD:/home/jenkins/subman:Z -w /home/jenkins/subman subman /bin/bash
 
 Reviewing PRs
 -------------
@@ -49,7 +47,7 @@ This means that for any PR which has had the jenkins tests complete
 the jenkins test results (for example if the unit tests failed):
 
     $ git checkout origin pr/XXXX
-    $ podman run -t quay.io/candlepin/subscription-manager:PR-XXXX sh ./jenkins/unit.sh
+    $ podman run -it quay.io/candlepin/subscription-manager:PR-XXXX sh ./jenkins/unit.sh
 
 One can also run the following (for the unit tests or for any tests that jenkins
 runs) (the CHANGE_ID should be the PR number that you are reproducing):
