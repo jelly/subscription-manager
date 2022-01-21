@@ -32,9 +32,13 @@ RUN dnf install --disablerepo=updates -y \
     python3-gobject-base \
     python3-iniparse \
     python3-inotify \
-    python3-nose \
     python3-pip \
     python3-polib \
+    python3-pytest \
+    python3-pytest-flake8 \
+    python3-pytest-forked \
+    python3-pytest-randomly \
+    python3-pytest-timeout \
     python3-requests \
     python3-rpm \
     python3-simplejson \
