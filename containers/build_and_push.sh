@@ -1,4 +1,5 @@
 #!/bin/bash -x
+set -e
 if [ -z "$GIT_HASH" ]; then
     TAG="$(git rev-parse HEAD)"
 else
