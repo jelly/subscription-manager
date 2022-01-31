@@ -22,7 +22,7 @@ Create a containerized environment
 
 To create a containerized environment you can simply run following script:
 
-    $ podman build -f ./containers/Containerfile.ci --build-arg UID="$(id -u)" -t subman
+    $ podman build -f ./containers/Containerfile --build-arg UID="$(id -u)" -t subman
     $ podman run -it --rm -v /run/user/$UID/bus:/tmp/bus subman /bin/bash
 
 The above will create a clean sandbox in which to run tests reliably and
